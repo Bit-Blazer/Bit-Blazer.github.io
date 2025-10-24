@@ -1,0 +1,201 @@
+# Sections content configuration file
+##
+### use navigation.yml file to re-order, delete or add section of each card
+### here you can find all content in all pre-build sections
+
+### Hero [ hero-image ]
+hero:
+  image: "assets/img/profile2.png"
+  image_alt: "Kamil Hassan A"
+  title: "<b>Kamil</b> Hassan A"
+  before_title: "Hello, <b>my name is</b>"
+  after_title: "I am"
+  titles:
+    - <strong>Full Stack Developer</strong>
+    - <strong>Web Developer</strong>
+    - <strong>App Developer</strong>
+    - <strong>Automation Scripting</strong>
+  description: "Final year Computer Science student from Chennai, India with interest in Web development and a strong passion for cloud and AI technologies."
+  button1:
+    label: "Download CV"
+    link: "assets/files/Resume.pdf"
+  button2:
+    label: "My Skills"
+    link: "#skills-section"
+  bg_title: "Developer"
+  info:
+    - num: "4 <strong>+</strong>"
+      value: "Major <strong>Projects</strong>"
+
+    - num: "2"
+      value: "Hackathon <strong>Wins</strong>"
+
+### Services [ services ]
+services:
+  title: "What I Do"
+  subtitle: "my <b>Services</b>"
+  bg_title: "Services"
+
+  items:
+    - title: "Full Stack Development"
+      subtitle: "Web &amp; Backend Development"
+      text: "Building robust backend systems with FastAPI and secure API integration. Experience with JWT-based authentication and cloud deployment on GCP."
+      button_label: "See Projects"
+      button_link: "#works-section"
+
+    - title: "Android &amp; Cross-Platform"
+      subtitle: "Mobile App Development"
+      text: "Developing native Android apps and cross-platform solutions using Flutter. Experienced in PDF processing, ML Kit integration, and complex state management."
+      button_label: "See Projects"
+      button_link: "#works-section"
+
+    - title: "AI &amp; Machine Learning"
+      subtitle: "On-Device ML Solutions"
+      text: "Implementing custom TensorFlow Lite models for on-device processing. Experience with Google ML Kit, MediaPipe, and predictive modeling for real-world applications."
+      button_label: "See Projects"
+      button_link: "#works-section"
+
+    - title: "Cloud Computing"
+      subtitle: "GCP &amp; Deployment"
+      text: "Deploying applications on Google Cloud Platform with experience in cloud infrastructure, automated deployment, and scalable backend solutions."
+      button_label: "See Projects"
+      button_link: "#works-section"
+
+    - title: "Automation &amp; Scripting"
+      subtitle: "Python &amp; Selenium"
+      text: "Creating automation scripts for repetitive tasks, web scraping, and testing. Proficient in Python scripting for various automation needs."
+      button_label: "See Projects"
+      button_link: "#works-section"
+
+### Skills [ skills ]
+skills:
+  title: "Professional Skills"
+  subtitle: "my <b>Talent</b>"
+  bg_title: "Skills"
+
+  column1:
+    items:
+      - label: "Python" #0-10 progress in dots
+        text: "Proficient in Python for backend development, automation scripting, and machine learning implementations."
+        value: "90" #0-100 progress in %
+
+      - label: "Java" #0-10 progress in dots
+        text: "Strong foundation in Java for Android development and object-oriented programming concepts."
+        value: "85" #0-100 progress in %
+
+  column2:
+    items:
+      - label: "Flutter/Dart" #0-10 progress in dots
+        text: "Experienced in cross-platform mobile development with Flutter and efficient state management."
+        value: "85" #0-100 progress in %
+
+      - label: "JavaScript" #0-10 progress in dots
+        text: "Skilled in JavaScript for web development and API integration in full-stack applications."
+        value: "80" #0-100 progress in %
+
+  column3:
+    items:
+      - label: "Google Cloud Platform" #0-10 progress in dots
+        text: "Hands-on experience with GCP services, deployment, and cloud infrastructure management."
+        value: "75" #0-100 progress in %
+
+      - label: "Machine Learning" #0-10 progress in dots
+        text: "Experience with TensorFlow Lite, ML Kit, and on-device machine learning implementations."
+        value: "70" #0-100 progress in %
+
+### Resume [ resume ]
+resume:
+  title: "Resume"
+  subtitle: "my <b>Story</b>"
+  bg_title: "History"
+
+  education:
+    title: "Education"
+    items:
+      - name: "Computer Science Engineering"
+        subname: "Final Year Student"
+        period: "2022 - <b>2026</b>"
+        text: "Pursuing Bachelor's degree in Computer Science with focus on software development, cloud computing, and artificial intelligence technologies."
+
+  experience:
+    title: "Experience &amp; Projects"
+    items:
+      - name: "Full Stack Intern"
+        subname: "TamrielAGI – Silicon Valley AI Startup"
+        period: "2024"
+        text: "Contributed to a fast-paced startup environment with hands-on GCP and Google Colab experience. Developed robust backend systems with JWT authentication and secure FastAPI integration."
+
+      - name: "Android Developer"
+        subname: "GPA Calculator Project"
+        period: "2024"
+        text: "Engineered an Android app for automated GPA calculation by parsing PDF marksheets. Implemented precise data extraction using Regular Expressions for academic tool development."
+
+      - name: "ML Mobile Developer"
+        subname: "WhatSweep &amp; SuperXO Projects"
+        period: "2023 - 2024"
+        text: "Created intelligent Android app with custom TensorFlow Lite models for on-device image classification. Built cross-platform multiplayer games with complex state management using Flutter."
+
+### Testimonials [ testimonials ]
+testimonials:
+  title: "Achievements"
+  subtitle: "my <b>Recognition</b>"
+  bg_title: "Awards"
+
+  items:
+    - image: "assets/img/testimonials/innov-era.jpg"
+      name: "Innov-Era Hackathon"
+      role: "K.K. Wagh Institute, Nashik"
+      text: "Runner Up in hardware-software integration challenge for LingoFlow - an assistive reading device for dyslexic individuals using Raspberry Pi and ML."
+
+    - image: "assets/img/testimonials/shaastra.jpg"
+      name: "Shaastra Techathon"
+      role: "IIT Madras - NeuralSparks Team"
+      text: "Winner of AI/ML Challenge 2 for developing accurate predictive models for temperature forecasting using time-series weather data."
+
+    - image: "assets/img/testimonials/tamrielagi.jpg"
+      name: "TamrielAGI"
+      role: "Silicon Valley AI Startup"
+      text: "Successful internship contribution to fast-paced startup environment with hands-on GCP experience and robust backend system development."
+
+### Blog [ blog ]
+#items generates from dir /_posts/*
+blog:
+  title: "Latest Blog"
+  subtitle: "my <b>Articles and Projects</b>"
+  bg_title: "Blog"
+  button:
+    label: "View Blog"
+    link: "blog/"
+
+### Contact [ contacts ]
+contacts:
+  title: "Contact Me"
+  subtitle: "Let’s <b>Talk About Ideas</b>"
+  bg_title: "Contact Me"
+
+  list:
+    - label: "Address"
+      icon: "far fa-map"
+      text: "Chennai, Tamil Nadu, India"
+
+    - label: "Freelance"
+      icon: "far fa-user"
+      text: "Available Right Now"
+
+    - label: "Email"
+      icon: "far fa-envelope"
+      text: "kamilhassan04@gmail.com"
+
+    - label: "Phone"
+      icon: "far fa-address-book"
+      text: "+91 744 844 72 72"
+
+### Portfolio [ portfolio ]
+#items generates from dir /_works/*
+portfolio:
+  title: "Portfolio"
+  subtitle: "my <b>Cases</b>"
+  bg_title: "Portfolio"
+  button:
+    link: "works/"
+    label: "View More"

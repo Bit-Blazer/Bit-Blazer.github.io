@@ -1,0 +1,54 @@
+# Theme Settings Configuration File
+##
+### use settings.yml file for configure colors, ui, rtl, sidebar, animation options
+
+### Main Settings
+settings:
+  skin: "light" # select initial skin option: "light" or "dark"
+
+### Preloader
+preloader:
+  logo:
+    image: "assets/img/logo2.png"
+    alt: "Kamil Hassan"
+
+### Header
+header:
+  logo:
+    image: "assets/img/logo.png"
+    alt: "Kamil Hassan"
+
+### Social
+social:
+  - title: "GitHub"
+    icon: "fab fa-github"
+    url: "https://github.com/Bit-Blazer"
+
+  - title: "LinkedIn"
+    icon: "fab fa-linkedin"
+    url: "https://linkedin.com/in/kamilhassan12"
+
+  - title: "Email"
+    icon: "far fa-envelope"
+    url: "mailto:kamilhassan04@gmail.com"
+
+### Footer
+footer:
+  # developer: "Developed by <strong>bslthemes</strong>"
+  copyright: "<strong>Luique</strong>. All rights reserved"
+
+### Portfolio Filters Settings
+portfolio:
+  layout: "list" # select works layout options: "Grid" or "List"
+  filters:
+    - name: "Android Development"
+      slug: "android-development"
+
+    - name: "Full Stack"
+      slug: "full-stack"
+
+    - name: "Machine Learning"
+      slug: "machine-learning"
+
+    - name: "Cross Platform"
+      slug: "cross-platform"
