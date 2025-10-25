@@ -19,13 +19,18 @@
 # in the templates via {{ site.myvariable }}.
 
 # basic settings
-title: "Personal Portfolio"
+title: "Bit-Blazer's Personal Portfolio"
 email: "kamilhassan04@gmail.com"
-description: "Jekyll Resume / CV / vCard / Portfolio and Personal Portfolio"
+description: "Developer from Chennai, India."
 author: "Bit-Blazer"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bit-blazer.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 date_format: "%d %B %Y"
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-image.png
 
 # paginations & permalinks
 paginate: 6
