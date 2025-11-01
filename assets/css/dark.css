@@ -271,10 +271,12 @@ body.dark-skin {
   color: #eaeaea;
 }
 
+/* 
 .dark-skin .header__builder .logo img,
 .dark-skin .preloader .spinner-logo img {
   filter: brightness(0) invert(1);
 }
+*/
 
 /**
 * Footer
@@ -355,7 +357,7 @@ body.dark-skin {
 }
 
 .dark-skin .lui-bgtitle {
-  color: rgba(255, 255, 255, 0.02);
+  color: rgba(33, 132, 108, 0.1);
 }
 
 /**
@@ -383,10 +385,12 @@ body.dark-skin {
     5px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
+/* 
 .dark-skin .section.hero-started .label strong,
 .dark-skin .section.hero-started .label b {
   color: #fff;
 }
+*/
 
 .dark-skin .section.hero-started .info-list ul li {
   color: #fff;
@@ -658,7 +662,7 @@ body.dark-skin {
 * Section Sidebar
 **/
 
-.dark-skin .col__sedebar .content-sidebar {
+.dark-skin .col__sidebar .content-sidebar {
   border-left: 1px solid #666;
 }
 
@@ -712,7 +716,7 @@ body.dark-skin {
 }
 
 .dark-skin .tags-links a,
-.dark-skin .col__sedebar .tagcloud a,
+.dark-skin .col__sidebar .tagcloud a,
 .dark-skin .wp-block-tag-cloud a {
   color: #fff;
 }

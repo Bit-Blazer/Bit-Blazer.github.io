@@ -9,7 +9,7 @@ settings:
 ### Preloader
 preloader:
   logo:
-    image: "assets/img/logo2.png"
+    image: "assets/img/logo.png"
     alt: "Kamil Hassan"
 
 ### Header
@@ -35,7 +35,7 @@ social:
 ### Footer
 footer:
   # developer: "Developed by <strong>bslthemes</strong>"
-  copyright: "<strong>Luique</strong>. All rights reserved"
+  copyright: "All rights reserved"
 
 ### Portfolio Filters Settings
 portfolio:

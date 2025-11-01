@@ -9,11 +9,11 @@ hero:
   image_alt: "Kamil Hassan A"
   title: "<b>Kamil</b> Hassan A"
   before_title: "Hello, <b>my name is</b>"
-  after_title: "I am"
+  after_title: "I Do"
   titles:
-    - <strong>Full Stack Developer</strong>
-    - <strong>Web Developer</strong>
-    - <strong>App Developer</strong>
+    - <strong>Full Stack Development</strong>
+    - <strong>Web Development</strong>
+    - <strong>App Development</strong>
     - <strong>Automation Scripting</strong>
   description: "Final year Computer Science student from Chennai, India with interest in Web development and a strong passion for cloud and AI technologies."
   button1:
@@ -33,7 +33,7 @@ hero:
 ### Services [ services ]
 services:
   title: "What I Do"
-  subtitle: "my <b>Services</b>"
+  subtitle: "My <b>Services</b>"
   bg_title: "Services"
 
   items:
@@ -70,7 +70,7 @@ services:
 ### Skills [ skills ]
 skills:
   title: "Professional Skills"
-  subtitle: "my <b>Talent</b>"
+  subtitle: "My <b>Talent</b>"
   bg_title: "Skills"
 
   column1:
@@ -103,10 +103,20 @@ skills:
         text: "Experience with TensorFlow Lite, ML Kit, and on-device machine learning implementations."
         value: "70" #0-100 progress in %
 
+### Portfolio [ portfolio ]
+#items generates from dir /_works/*
+portfolio:
+  title: "Portfolio"
+  subtitle: "My <b>Cases</b>"
+  bg_title: "Portfolio"
+  button:
+    link: "works/"
+    label: "View More"
+
 ### Resume [ resume ]
 resume:
   title: "Resume"
-  subtitle: "my <b>Story</b>"
+  subtitle: "My <b>Story</b>"
   bg_title: "History"
 
   education:
@@ -138,7 +148,7 @@ resume:
 ### Testimonials [ testimonials ]
 testimonials:
   title: "Achievements"
-  subtitle: "my <b>Recognition</b>"
+  subtitle: "My <b>Recognition</b>"
   bg_title: "Awards"
 
   items:
@@ -161,7 +171,7 @@ testimonials:
 #items generates from dir /_posts/*
 blog:
   title: "Latest Blog"
-  subtitle: "my <b>Articles and Projects</b>"
+  subtitle: "My <b>Articles and Projects</b>"
   bg_title: "Blog"
   button:
     label: "View Blog"
@@ -189,13 +199,3 @@ contacts:
     - label: "Phone"
       icon: "far fa-address-book"
       text: "+91 744 844 72 72"
-
-### Portfolio [ portfolio ]
-#items generates from dir /_works/*
-portfolio:
-  title: "Portfolio"
-  subtitle: "my <b>Cases</b>"
-  bg_title: "Portfolio"
-  button:
-    link: "works/"
-    label: "View More"
