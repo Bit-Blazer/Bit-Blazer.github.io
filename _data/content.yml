@@ -152,17 +152,17 @@ testimonials:
   bg_title: "Awards"
 
   items:
-    - image: "assets/img/testimonials/innov-era.jpg"
+    - image: "assets/img/testimonials/innov-era.webp"
       name: "Innov-Era Hackathon"
       role: "K.K. Wagh Institute, Nashik"
       text: "Runner Up in hardware-software integration challenge for LingoFlow - an assistive reading device for dyslexic individuals using Raspberry Pi and ML."
 
-    - image: "assets/img/testimonials/shaastra.jpg"
+    - image: "assets/img/testimonials/shaastra.webp"
       name: "Shaastra Techathon"
       role: "IIT Madras - NeuralSparks Team"
       text: "Winner of AI/ML Challenge 2 for developing accurate predictive models for temperature forecasting using time-series weather data."
 
-    - image: "assets/img/testimonials/tamrielagi.jpg"
+    - image: "assets/img/testimonials/tamrielagi.webp"
       name: "TamrielAGI"
       role: "Silicon Valley AI Startup"
       text: "Successful internship contribution to fast-paced startup environment with hands-on GCP experience and robust backend system development."

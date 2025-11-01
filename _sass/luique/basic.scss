@@ -339,8 +339,7 @@ input[type="submit"] {
 }
 
 a.btn:before,
-.btn:before,
-button:before {
+.btn:before {
   content: "";
   position: absolute;
   left: 50%;
@@ -995,8 +994,12 @@ hr {
 }
 
 .alert-success {
-  color: green;
+  color: black;
   font-size: 18px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid green;
+  margin-top: 30px;
 }
 
 /* - Wrapper */
@@ -1027,7 +1030,7 @@ hr {
 .v-line-block {
   position: absolute;
   left: -100px;
-  top: -30px;
+  top: -70px;
   bottom: -30px;
   width: 2px;
   background: #000;

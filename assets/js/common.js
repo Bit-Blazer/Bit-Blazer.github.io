@@ -1,53 +1,124 @@
 (function ($) {
   "use strict";
 
-  /**
-	Preloader
-**/
+  // ==========================================================================
+  // CURSOR FUNCTIONALITY
+  // ==========================================================================
+
+  function initCursor() {
+    var mouseX = window.innerWidth / 2,
+      mouseY = window.innerHeight / 2;
+
+    var cursor = {
+      el: $(".cursor"),
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+      w: 30,
+      h: 30,
+      update: function () {
+        var l = this.x - this.w / 2;
+        var t = this.y - this.h / 2;
+        this.el.css({ transform: "translate3d(" + l + "px," + t + "px, 0)" });
+      },
+    };
+
+    // Mouse movement tracking
+    $(window).mousemove(function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Cursor zoom effect on interactive elements
+    $(
+      "a, .swiper-pagination, .swiper-button-prev, .swiper-button-next, button, .button, .btn, .lnk"
+    ).hover(
+      function () {
+        $(".cursor").addClass("cursor-zoom");
+      },
+      function () {
+        $(".cursor").removeClass("cursor-zoom");
+      }
+    );
+
+    // Smooth cursor movement animation
+    setInterval(move, 1000 / 60);
+
+    function move() {
+      cursor.x = lerp(cursor.x, mouseX, 0.1);
+      cursor.y = lerp(cursor.y, mouseY, 0.1);
+      cursor.update();
+    }
+
+    // Linear interpolation function for smooth cursor movement
+    function lerp(start, end, amt) {
+      return (1 - amt) * start + amt * end;
+    }
+  }
+
+  // ==========================================================================
+  // PRELOADER & WINDOW LOAD EVENTS
+  // ==========================================================================
+
   $(window).on("load", function () {
     $("body").imagesLoaded({}, function () {
       var preload = $(".preloader");
       preload.addClass("loaded");
       preload.find(".centrize").fadeOut();
 
-      /**
-			init Cursor
-		**/
+      // Initialize cursor
       initCursor();
 
-      /**
-			init Scrolla
-		**/
+      // Initialize scroll animations
       $(".elementor-widget-text-editor").attr("data-animate", "active");
       $(".scroll-animate").scrolla({
         once: true,
         mobile: true,
       });
+
+      // Initialize parallax effects
+      $(".js-parallax").jarallax({
+        speed: 0.65,
+        type: "scroll",
+      });
+
+      // Initialize text splitting animation
+      Splitting();
+
+      // Initialize Skrollr for desktop
+      if ($(window).width() > 1200) {
+        var s = skrollr.init();
+      }
+    });
+
+    // Disable right-click context menu
+    $(document).on("contextmenu", function (e) {
+      e.preventDefault();
     });
   });
+
+  // ==========================================================================
+  // MAIN INITIALIZATION
+  // ==========================================================================
 
   $(function () {
     "use strict";
 
-    /**
-		Sections full height
-	**/
-    setHeightFullSection();
-    $(window).resize(function () {
-      setHeightFullSection();
-    });
+    // ==========================================================================
+    // LAYOUT & RESPONSIVE SETUP
+    // ==========================================================================
 
-    /**
-		Parallax
-	**/
-    $(".js-parallax").jarallax({
-      speed: 0.65,
-      type: "scroll",
-    });
+    // Set initial full height sections
+    var setFullHeight = function () {
+      var height = $(window).height();
+      $(".error-page, .menu-full-overlay, .preloader .centrize").css({
+        height: height,
+      });
+    };
 
-    /**
-		Block Line
-	**/
+    setFullHeight();
+    $(window).resize(setFullHeight);
+
+    // Add decorative Block lines
     if ($(".v-line").length) {
       $(".v-line .container").append(
         '<div class="v-line-block"><span></span></div>'
@@ -57,155 +128,141 @@
       );
     }
 
-    /**
-		Splitting
-	**/
-    Splitting();
+    // ==========================================================================
+    // TEXT ANIMATIONS
+    // ==========================================================================
 
-    /**
-		Skrollr
-	**/
-    if ($(window).width() > 1200) {
-      var s = skrollr.init();
-    }
-
-    /*
-		Typed
-	*/
+    // Initialize typed text animation
     $(".subtitle-typed").each(function () {
       var subtitleContainer = $(this);
 
       subtitleContainer.typed({
         stringsElement: subtitleContainer.find(".typing-title"),
-        backDelay: 1500 /* Delay in text change */,
-        typeSpeed: 60 /* Typing speed */,
+        backDelay: 1500, // Delay in text change
+        typeSpeed: 60, // Typing speed
         backSpeed: 40,
-        loop: true,
+        loop: true
       });
     });
 
-    /**
-		Header Sticky
-	**/
-    if ($(".header").length) {
-      $(window).on("scroll", function (event) {
-        if ($(window).scrollTop() > 100) {
-          $(".header").addClass("sticky");
+    // ==========================================================================
+    // HEADER FUNCTIONALITY
+    // ==========================================================================
+
+    var $header = $(".header");
+    var $body = $("body");
+    var $window = $(window);
+
+    // Sticky header on scroll
+    if ($header.length) {
+      $window.on("scroll", function (event) {
+        var scrollTop = $window.scrollTop();
+        if (scrollTop > 100) {
+          $header.addClass("sticky");
           if (this.oldScroll < this.scrollY) {
-            $(".header").addClass("animate-in");
+            $header.addClass("animate-in");
           } else {
-            if ($(window).scrollTop() < 200) {
-              $(".header").addClass("animate-out");
+            if (scrollTop < 200) {
+              $header.addClass("animate-out");
             }
           }
         } else {
-          $(".header").removeClass("sticky");
-          $(".header").removeClass("animate-in");
-          $(".header").removeClass("animate-out");
+          $header.removeClass("sticky animate-in animate-out");
         }
 
         this.oldScroll = this.scrollY;
       });
     }
 
-    function checkScrollDirectionIsUp(event) {
-      if (event.wheelDelta) {
-        return event.wheelDelta > 0;
-      }
-      return event.deltaY < 0;
-    }
-
-    /**
-		Header Switcher Button
-	**/
+    // Theme switcher functionality
     var skin = $.cookie("skin");
     if (skin == "light") {
-      $("body").removeClass("dark-skin");
-      $("body").addClass("light-skin");
+      $body.removeClass("dark-skin").addClass("light-skin");
     }
     if (skin == "dark") {
-      $("body").removeClass("light-skin");
-      $("body").addClass("dark-skin");
+      $body.removeClass("light-skin").addClass("dark-skin");
     }
 
-    if ($("body").hasClass("dark-skin")) {
-      $(".header .switcher-btn").addClass("active");
+    if ($body.hasClass("dark-skin")) {
+      $header.find(".switcher-btn").addClass("active");
     }
-    $(".header").on("click", ".switcher-btn", function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
-        $("body").removeClass("dark-skin");
-        $("body").addClass("light-skin");
+
+    $header.on("click", ".switcher-btn", function () {
+      var $this = $(this);
+      if ($this.hasClass("active")) {
+        $this.removeClass("active");
+        $body.removeClass("dark-skin").addClass("light-skin");
         $.cookie("skin", "light", { expires: 7, path: "/" });
       } else {
-        $(this).addClass("active");
-        $("body").removeClass("light-skin");
-        $("body").addClass("dark-skin");
+        $this.addClass("active");
+        $body.removeClass("light-skin").addClass("dark-skin");
         $.cookie("skin", "dark", { expires: 7, path: "/" });
       }
       return false;
     });
 
-    /**
-		Header Menu Button
-	**/
-    $(".header").on("click", ".menu-btn", function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
-        $(this).addClass("no-touch");
-        $(".menu-overlay").addClass("no-touch");
-        $("body").removeClass("no-scroll");
-        $(".menu-full-overlay").removeClass("is-open");
-        $(".menu-full-overlay").removeClass("has-scroll");
-        $(".menu-full-overlay").removeClass("animate-active");
+    // ==========================================================================
+    // NAVIGATION MENU
+    // ==========================================================================
+
+    var $menuBtn = $(".menu-btn");
+    var $menuOverlay = $(".menu-overlay");
+    var $menuFullOverlay = $(".menu-full-overlay");
+
+    // Mobile menu toggle
+    $header.on("click", ".menu-btn", function () {
+      var $this = $(this);
+      var isActive = $this.hasClass("active");
+
+      if (isActive) {
+        // Close menu
+        $this.removeClass("active").addClass("no-touch");
+        $menuOverlay.addClass("no-touch");
+        $body.removeClass("no-scroll");
+        $menuFullOverlay.removeClass("is-open has-scroll animate-active");
         setTimeout(function () {
-          $(".menu-full-overlay").removeClass("visible");
-          $(".menu-btn").removeClass("no-touch");
-          $(".menu-overlay").removeClass("no-touch");
+          $menuFullOverlay.removeClass("visible");
+          $menuBtn.removeClass("no-touch");
+          $menuOverlay.removeClass("no-touch");
         }, 1000);
       } else {
-        $(this).addClass("active no-touch");
-        $(".menu-overlay").addClass("no-touch");
-        var height = $(window).height();
-        $(".menu-full-overlay").css({ height: height });
-        $("body").addClass("no-scroll");
-        $(".menu-full-overlay").addClass("is-open visible");
+        // Open menu
+        $this.addClass("active no-touch");
+        $menuOverlay.addClass("no-touch");
+        $menuFullOverlay.css({ height: $window.height() });
+        $body.addClass("no-scroll");
+        $menuFullOverlay.addClass("is-open visible");
         setTimeout(function () {
-          $(".menu-full-overlay").addClass("has-scroll animate-active");
-          $(".menu-btn").removeClass("no-touch");
-          $(".menu-overlay").removeClass("no-touch");
+          $menuFullOverlay.addClass("has-scroll animate-active");
+          $menuBtn.removeClass("no-touch");
+          $menuOverlay.removeClass("no-touch");
         }, 1000);
       }
       return false;
     });
-    $(".menu-full-overlay").on("click", ".menu-overlay", function () {
-      $(".menu-btn").removeClass("active");
-      $(".menu-btn").addClass("no-touch");
-      $(".menu-overlay").addClass("no-touch");
-      $("body").removeClass("no-scroll");
-      $(".menu-full-overlay").removeClass("is-open");
-      $(".menu-full-overlay").removeClass("has-scroll");
-      $(".menu-full-overlay").removeClass("animate-active");
+
+    // Close menu when clicking overlay
+    $menuFullOverlay.on("click", ".menu-overlay", function () {
+      $menuBtn.removeClass("active").addClass("no-touch");
+      $menuOverlay.addClass("no-touch");
+      $body.removeClass("no-scroll");
+      $menuFullOverlay.removeClass("is-open has-scroll animate-active");
       setTimeout(function () {
-        $(".menu-full-overlay").removeClass("visible");
-        $(".menu-btn").removeClass("no-touch");
-        $(".menu-overlay").removeClass("no-touch");
+        $menuFullOverlay.removeClass("visible");
+        $menuBtn.removeClass("no-touch");
+        $menuOverlay.removeClass("no-touch");
       }, 1000);
       return false;
     });
 
-    /*
-		Top Menu
-	*/
+    // Close menu when clicking menu links (except parent items)
     $(".menu-full").on("click", "a", function () {
       if (!$(this).parent().hasClass("has-children")) {
         $(".header .menu-btn.active").trigger("click");
       }
     });
 
-    /*
-		Header Menu Dropdown
-	*/
+    // Dropdown menu functionality
     $(".menu-full .has-children > a").append(
       '<i class="fas fa-chevron-down"></i>'
     );
@@ -227,10 +284,12 @@
       return false;
     });
 
-    /*
-		Carousel Services
-	*/
-    var swiperServices = new Swiper(".js-services", {
+    // ==========================================================================
+    // CAROUSEL/SLIDER COMPONENTS
+    // ==========================================================================
+
+    // Services carousel
+    new Swiper(".js-services", {
       slidesPerView: 3,
       spaceBetween: 40,
       watchSlidesVisibility: true,
@@ -262,10 +321,8 @@
       },
     });
 
-    /*
-		Carousel Testimonials
-	*/
-    var swiperTestimonials = new Swiper(".js-testimonials", {
+    // Testimonials carousel
+    new Swiper(".js-testimonials", {
       slidesPerView: 3,
       spaceBetween: 40,
       watchSlidesVisibility: true,
@@ -297,10 +354,14 @@
       },
     });
 
-    /*
-		Initialize portfolio items
-	*/
+    // ==========================================================================
+    // PORTFOLIO/GALLERY FUNCTIONALITY
+    // ==========================================================================
+
+    // Initialize portfolio and gallery section with isotope
     var $container = $(".works-items");
+    var $gal_container = $(".m-gallery");
+
     $container.imagesLoaded(function () {
       $container.isotope({
         itemSelector: ".works-col",
@@ -308,7 +369,6 @@
       });
     });
 
-    var $gal_container = $(".m-gallery");
     $gal_container.imagesLoaded(function () {
       $gal_container.isotope({
         itemSelector: ".col-lg-6",
@@ -316,9 +376,7 @@
       });
     });
 
-    /*
-		Filter items on button click
-	*/
+    // Portfolio filter functionality
     $(".filter-links").on("click", "a", function () {
       var filterValue = $(this).attr("data-href");
       $container.isotope({ filter: filterValue });
@@ -333,6 +391,11 @@
       return false;
     });
 
+    // ==========================================================================
+    // POPUP/MODAL FUNCTIONALITY
+    // ==========================================================================
+
+    // Popup configurations
     $(".has-popup-image").magnificPopup({
       type: "image",
       closeOnContentClick: true,
@@ -342,10 +405,8 @@
       },
     });
 
-    /*
-		Video popup
-	*/
-    $(".has-popup-video").magnificPopup({
+    // Video and audio popups (shared configuration)
+    $(".has-popup-video, .has-popup-audio").magnificPopup({
       disableOn: 700,
       type: "iframe",
       iframe: {
@@ -368,21 +429,11 @@
       },
     });
 
-    /*
-		Music popup
-	*/
-    $(".has-popup-audio").magnificPopup({
-      disableOn: 700,
-      type: "iframe",
-      removalDelay: 160,
-      preloader: false,
-      fixedContentPos: false,
-      mainClass: "mfp-fade",
-    });
+    // ==========================================================================
+    // UI COMPONENTS
+    // ==========================================================================
 
-    /**
-		Tabs
-	**/
+    // Tab functionality
     $(".tab-menu").on("click", ".tab-btn", function () {
       var tab_bl = $(this).attr("href");
 
@@ -395,9 +446,7 @@
       return false;
     });
 
-    /**
-		Collapse
-	**/
+    // Collapse/Accordion functionality
     $(".lui-collapse-item").on("click", ".lui-collapse-btn", function () {
       if ($(this).closest(".lui-collapse-item").hasClass("opened")) {
         $(this).closest(".lui-collapse-item").removeClass("opened");
@@ -408,37 +457,24 @@
       }
     });
 
-    /**
-		Video
-	**/
+    // ==========================================================================
+    // MEDIA FUNCTIONALITY
+    // ==========================================================================
+
+    // Large video play functionality
     $(".m-video-large .video").on("click", ".play, .img", function () {
       $(this).closest(".video").addClass("active");
       var iframe = $(this).closest(".video").find(".js-video-iframe");
-      largeVideoPlay(iframe);
-      return false;
-    });
-    function largeVideoPlay(iframe) {
       var src = iframe.data("src");
       iframe.attr("src", src);
-    }
-
-    /**
-		Cart Popup
-	**/
-    $(".header .cart-btn .cart-icon").on("click", function () {
-      if ($(this).closest(".cart-btn").hasClass("opened")) {
-        $(this).closest(".cart-btn").removeClass("opened");
-        $(this).closest(".cart-btn").find(".cart-widget").hide();
-      } else {
-        $(this).closest(".cart-btn").addClass("opened");
-        $(this).closest(".cart-btn").find(".cart-widget").fadeIn();
-      }
       return false;
     });
 
-    /*
-		Search
-	*/
+    // ==========================================================================
+    // SEARCH FUNCTIONALITY
+    // ==========================================================================
+
+    // Initialize Jekyll search if element exists
     if ($("#search-input").length) {
       var sjs = SimpleJekyllSearch({
         searchInput: document.getElementById("search-input"),
@@ -446,57 +482,14 @@
         json: "/search.json",
       });
     }
-  });
 
-  function initCursor() {
-    var mouseX = window.innerWidth / 2,
-      mouseY = window.innerHeight / 2;
+    // ==========================================================================
+    // CONTACT FORM
+    // ==========================================================================
 
-    var cursor = {
-      el: $(".cursor"),
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
-      w: 30,
-      h: 30,
-      update: function () {
-        var l = this.x - this.w / 2;
-        var t = this.y - this.h / 2;
-        this.el.css({ transform: "translate3d(" + l + "px," + t + "px, 0)" });
-      },
-    };
-
-    $(window).mousemove(function (e) {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    $(
-      "a, .swiper-pagination, .swiper-button-prev, .swiper-button-next, button, .button, .btn, .lnk"
-    ).hover(
-      function () {
-        $(".cursor").addClass("cursor-zoom");
-      },
-      function () {
-        $(".cursor").removeClass("cursor-zoom");
-      }
-    );
-
-    setInterval(move, 1000 / 60);
-
-    function move() {
-      cursor.x = lerp(cursor.x, mouseX, 0.1);
-      cursor.y = lerp(cursor.y, mouseY, 0.1);
-      cursor.update();
-    }
-
-    function lerp(start, end, amt) {
-      return (1 - amt) * start + amt * end;
-    }
-
-    /*
-		Validate Contact Form
-	*/
+    // Contact form validation and submission
     if ($(".contacts-form").length) {
+      // Form validation
       $("#cform").validate({
         rules: {
           name: {
@@ -515,19 +508,42 @@
           return 1;
         },
       });
+
+      // Form submission handler
+      $("#cform").on("submit", function (event) {
+        event.preventDefault();
+        var $form = $(this);
+        var $status = $("#formAlertSuccess");
+        var formData = new FormData(this);
+
+        $.ajax({
+          url: $form.attr("action"),
+          type: $form.attr("method"),
+          data: formData,
+          processData: false,
+          contentType: false,
+          headers: {
+            Accept: "application/json",
+          },
+          success: function (response) {
+            $status.show();
+            $form[0].reset();
+          },
+          error: function (xhr) {
+            var errorMessage = "Oops! There was a problem submitting your form";
+            if (xhr.responseJSON && xhr.responseJSON.errors) {
+              errorMessage = xhr.responseJSON.errors
+                .map(function (error) {
+                  return error.message;
+                })
+                .join(", ");
+            }
+            $status.html(errorMessage).show();
+          },
+        });
+      });
     }
-  }
-
-  function setHeightFullSection() {
-    var width = $(window).width();
-    var height = $(window).height();
-
-    /* Set full height in started blocks */
-    $(".error-page, .menu-full-overlay, .preloader .centrize").css({
-      height: height,
-    });
-  }
-    $(document).on("contextmenu", function(e) {
-    e.preventDefault();
   });
+
+
 })(jQuery);

@@ -32,6 +32,10 @@ social:
     icon: "far fa-envelope"
     url: "mailto:kamilhassan04@gmail.com"
 
+  - title: "Telegram"
+    icon: "fab fa-telegram"
+    url: "https://t.me/Finally_i_got_a_username"
+
 ### Footer
 footer:
   # developer: "Developed by <strong>bslthemes</strong>"
