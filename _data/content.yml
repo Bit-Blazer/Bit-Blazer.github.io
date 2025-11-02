@@ -187,6 +187,7 @@ contacts:
     - label: "Address"
       icon: "far fa-map"
       text: "Chennai, Tamil Nadu, India"
+      url: "https://www.google.com/maps/place/Chennai,+Tamil+Nadu,+India"
 
     - label: "Freelance"
       icon: "far fa-user"
@@ -195,7 +196,9 @@ contacts:
     - label: "Email"
       icon: "far fa-envelope"
       text: "kamilhassan04@gmail.com"
+      url: "mailto:kamilhassan04@gmail.com"
 
     - label: "Phone"
       icon: "far fa-address-book"
       text: "+91 744 844 72 72"
+      url: "tel:+917448447272"

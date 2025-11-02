@@ -221,10 +221,8 @@ body.dark-skin {
 * Header
 **/
 
-@media screen and (max-width: 1200px) {
-  .dark-skin .header.sticky {
-    background: #1d222a;
-  }
+.dark-skin .header.sticky {
+  background: #1d222a;
 }
 
 .dark-skin .header.sticky .navbar.default:before {
@@ -765,7 +763,7 @@ body.dark-skin {
 * Responsive
 **/
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .dark-skin .menu-full ul li ul li.opened ul {
     background: #1d1d25;
   }

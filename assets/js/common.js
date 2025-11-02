@@ -86,7 +86,7 @@
 
       // Initialize Skrollr for desktop
       if ($(window).width() > 1200) {
-        var s = skrollr.init();
+        skrollr.init();
       }
     });
 
@@ -153,26 +153,35 @@
     var $body = $("body");
     var $window = $(window);
 
-    // Sticky header on scroll
-    if ($header.length) {
-      $window.on("scroll", function (event) {
-        var scrollTop = $window.scrollTop();
-        if (scrollTop > 100) {
-          $header.addClass("sticky");
-          if (this.oldScroll < this.scrollY) {
-            $header.addClass("animate-in");
-          } else {
-            if (scrollTop < 200) {
-              $header.addClass("animate-out");
-            }
-          }
-        } else {
-          $header.removeClass("sticky animate-in animate-out");
-        }
+    var lastScroll = 0;
 
-        this.oldScroll = this.scrollY;
-      });
-    }
+    // Sticky header on scroll
+    $window.on("scroll", function () {
+      var scrollTop = $window.scrollTop();
+
+      // --- Sticky toggle ---
+      if (scrollTop > 100) {
+        $header.addClass("sticky");
+      } else {
+        $header.removeClass("sticky animate-in animate-out");
+        lastScroll = scrollTop;
+        return; // stop here, don't animate
+      }
+
+      // --- Scroll direction ---
+      if (scrollTop > lastScroll) {
+        // Scrolling down → slide header in
+        $header.removeClass("animate-out").addClass("animate-in");
+      } else {
+        // Scrolling up → slide header out (but only near top)
+        if (scrollTop < 200) {
+          $header.removeClass("animate-in").addClass("animate-out");
+        }
+      }
+
+      lastScroll = scrollTop;
+    });
+
 
     // Theme switcher functionality
     var skin = $.cookie("skin");
@@ -423,7 +432,7 @@
       fixedContentPos: false,
       mainClass: "mfp-fade",
       callbacks: {
-        markupParse: function (template, values, item) {
+        markupParse: function (template) {
           template.find("iframe").attr("allow", "autoplay");
         },
       },
@@ -476,7 +485,7 @@
 
     // Initialize Jekyll search if element exists
     if ($("#search-input").length) {
-      var sjs = SimpleJekyllSearch({
+      SimpleJekyllSearch({
         searchInput: document.getElementById("search-input"),
         resultsContainer: document.getElementById("results-container"),
         json: "/search.json",
@@ -525,7 +534,7 @@
           headers: {
             Accept: "application/json",
           },
-          success: function (response) {
+          success: function () {
             $status.show();
             $form[0].reset();
           },
