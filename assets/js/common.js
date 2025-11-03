@@ -383,6 +383,11 @@
         itemSelector: ".col-lg-6",
         percentPosition: true,
       });
+      
+      // Layout refresh when images finish loading
+      $gal_container.find('img').on('load', function() {
+        $gal_container.isotope('layout');
+      });
     });
 
     // Portfolio filter functionality

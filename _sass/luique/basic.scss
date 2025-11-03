@@ -1582,6 +1582,14 @@ hr {
   background: #18181b;
 }
 
+.home .header .logo {
+  display: none;
+}
+
+.home .header.sticky .logo {
+  display: block;
+}
+
 .header .navbar {
   padding: 0;
   position: relative;
@@ -1634,7 +1642,6 @@ hr {
 
 .header .logo img {
   max-width: 100%;
-  height: auto;
   transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
   -moz-transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
   -webkit-transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);

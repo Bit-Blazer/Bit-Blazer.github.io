@@ -6,10 +6,10 @@
     <aside class="widget-area">
 
       <div class="widget widget_block widget_search">
-        <form class="search-form wp-block-search" method="GET" action="{{ '/search.html' | relative_url }}">
+        <form class="search-form wp-block-search" onsubmit="return false;">
           <div class="wp-block-search__inside-wrapper">
-            <input type="search" class="wp-block-search__input wp-block-search__input" id="search-input" placeholder="{{ ui_text.search }}" value="">
-            <button type="submit" class="wp-block-search__button wp-element-button">{{ ui_text.search }}</button>
+            <input type="search" class="wp-block-search__input wp-block-search__input" id="search-input" placeholder="{{ ui_text.search }}" value="" autocomplete="off">
+            <button class="wp-block-search__button wp-element-button">{{ ui_text.search }}</button>
           </div>
           <ul id="results-container"></ul>
         </form>

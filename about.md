@@ -1,9 +1,8 @@
 ---
 layout: page
-title: About
+title: About Me
+permalink: /about/
 ---
-
-## About Kamil Hassan A
 
 I'm a final year Computer Science student from Chennai, India, with a proven ability in app development and a strong passion for cloud and AI technologies. My journey in software development has been driven by a dedication to solving complex real-world problems through innovative technology solutions.
 

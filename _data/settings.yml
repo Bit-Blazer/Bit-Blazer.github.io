@@ -9,13 +9,15 @@ settings:
 ### Preloader
 preloader:
   logo:
-    image: "assets/img/logo.png"
+    image: "assets/img/logo.webp"
     alt: "Kamil Hassan"
 
 ### Header
 header:
   logo:
-    image: "assets/img/logo.png"
+    image: "assets/img/logo.webp"
+    width: 80
+    height: 50
     alt: "Kamil Hassan"
 
 ### Social
