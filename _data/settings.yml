@@ -47,14 +47,11 @@ footer:
 portfolio:
   layout: "list" # select works layout options: "Grid" or "List"
   filters:
-    - name: "Android Development"
-      slug: "android-development"
-
     - name: "Full Stack"
       slug: "full-stack"
 
+    - name: "Mobile Development"
+      slug: "mobile-development"
+
     - name: "Machine Learning"
       slug: "machine-learning"
-
-    - name: "Cross Platform"
-      slug: "cross-platform"

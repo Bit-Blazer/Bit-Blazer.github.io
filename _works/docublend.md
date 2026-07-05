@@ -2,9 +2,9 @@
 # preview details
 layout: works-single
 title: DocuBlend
-category: Web App
+category: Full Stack
 category_slugs:
-  - web-app
+  - full-stack
 image: assets/img/works/docublend/docublend.jpg
 short_description: A 100% private, client-side document composition tool running entirely in the browser to merge PDFs, attach images, fix perspective, and remove backgrounds with zero server uploads.
 

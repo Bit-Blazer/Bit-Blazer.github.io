@@ -5,6 +5,7 @@ title: WhatSweep
 category: Machine Learning
 category_slugs:
   - machine-learning
+  - mobile-development
 image: assets/img/works/whatsweep/whatsweep.jpg
 short_description: Intelligent Android app that automatically organizes and cleans study-related media from WhatsApp using on-device machine learning for image classification.
 

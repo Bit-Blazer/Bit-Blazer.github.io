@@ -2,9 +2,9 @@
 # preview details
 layout: works-single
 title: TinyHands
-category: Android App
+category: Mobile App
 category_slugs:
-  - android-app
+  - mobile-development
 image: assets/img/works/tinyhands/tinyhands.jpg
 short_description: A native Android utility providing full-screen touch blocking via system overlays and a secure, position-locked triple-tap gesture, without requiring Accessibility Services.
 

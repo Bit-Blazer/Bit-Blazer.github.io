@@ -2,9 +2,9 @@
 # preview details
 layout: works-single
 title: GPA Calculator
-category: Android Development
+category: Mobile App
 category_slugs:
-  - android-development
+  - mobile-development
 image: assets/img/works/gpa-calculator/gpa-calculator.jpg
 short_description: Android app that automates GPA calculation by parsing PDF marksheets from colleges and DigiLocker using advanced data extraction techniques.
 

@@ -13,7 +13,7 @@ preview_url: https://tamrielagi.com
 full_image: assets/img/works/tamrielagi-backend/tamrielagi-backend-full.jpg
 info:
   - label: Year
-    value: 2024
+    value: 2025
 
   - label: Technology
     value: FastAPI, Python, GCP, JWT, Google Colab

@@ -5,7 +5,7 @@ title: LingoFlow
 category: Machine Learning
 category_slugs: 
   - machine-learning
-  - android-development
+  - mobile-development
 image: assets/img/works/lingoflow/lingoflow.jpg
 short_description: Assistive reading device for dyslexic individuals using Raspberry Pi Zero and ML-powered gesture recognition with OCR and text-to-speech capabilities.
 

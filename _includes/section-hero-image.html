@@ -36,7 +36,7 @@
             <div class="social-links">
               {% for link in social %}
               {% assign link_url = link.url | absolute_url %}
-              <a target="_blank" rel="nofollow" href="{{ link.url | relative_url }}" title="{{ link.name }}">
+              <a target="_blank" rel="nofollow" href="{{ link.url | relative_url }}" title="{{ link.title }}">
                 <i aria-hidden="true" class="{{ link.icon }}"></i>
               </a>
               {% endfor %}

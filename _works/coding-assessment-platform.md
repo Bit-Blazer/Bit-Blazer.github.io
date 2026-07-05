@@ -2,9 +2,9 @@
 # preview details
 layout: works-single
 title: Coding Assessment Platform
-category: Web App
+category: Full Stack
 category_slugs:
-  - web-app
+  - full-stack
 image: assets/img/works/coding-assessment-platform/coding-assessment-platform.jpg
 short_description: A production-grade internal assessment platform supporting 25 skills with sandboxed multi-file code execution.
 

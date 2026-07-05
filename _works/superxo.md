@@ -2,9 +2,9 @@
 # preview details
 layout: works-single
 title: SuperXO
-category: Cross Platform
+category: Mobile App
 category_slugs:
-  - cross-platform
+  - mobile-development
 image: assets/img/works/superxo/superxo.jpg
 short_description: Cross-platform multiplayer tic-tac-toe variant with 9x9 nested grids, built using Flutter with efficient state management for complex game logic.
 

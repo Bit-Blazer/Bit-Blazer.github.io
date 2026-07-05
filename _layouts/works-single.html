@@ -50,9 +50,11 @@ layout: default
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 align-right">
 
+					{% if page.preview_url != nil and page.preview_url != "" %}
 					<a target="_blank" href="{{ page.preview_url }}" class="btn scrolla-element-anim-1 scroll-animate" data-animate="active">
 						<span>{{ ui_text.live_preview }}</span>
 					</a>
+					{% endif %}
 
 				</div>
 			</div>
@@ -69,7 +71,7 @@ layout: default
 	<!-- Image -->
 	<div class="m-image-large">
 		<div class="image">
-			<div class="img js-parallax" style="background-image: url({{ page.full_image | relative_url }});"></div>
+			<div class="img js-parallax" style="background-image: url('{{ page.full_image | relative_url }}');"></div>
 		</div>
 	</div>
 
@@ -172,7 +174,7 @@ layout: default
 <!-- Section - Video -->
 <div class="section section-inner m-video-large">
 	<div class="video">
-		<div class="img js-parallax" style="background-image: url({{ page.video.poster | relative_url }});"></div>
+		<div class="img js-parallax" style="background-image: url('{{ page.video.poster | relative_url }}');"></div>
 		<iframe class="js-video-iframe" data-src="https://www.youtube.com/embed/{{ page.video.id }}?showinfo=0&amp;rel=0&amp;autoplay=1"></iframe>
 		<div class="play"></div>
 	</div>

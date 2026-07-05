@@ -2,9 +2,9 @@
 # preview details
 layout: works-single
 title: PAN Service CRM
-category: Web App
+category: Full Stack
 category_slugs:
-  - web-app
+  - full-stack
 image: assets/img/works/pan-crm/pan-crm.jpg
 short_description: A full-stack custom CRM replacing a chaotic WhatsApp-based intake workflow with structured database tracking and automated Google Drive document uploads.
 
