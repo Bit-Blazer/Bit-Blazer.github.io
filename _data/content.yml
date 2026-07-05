@@ -15,7 +15,7 @@ hero:
     - <strong>Web Development</strong>
     - <strong>App Development</strong>
     - <strong>Automation Scripting</strong>
-  description: "Final year Computer Science student from Chennai, India with interest in Web development and a strong passion for cloud and AI technologies."
+  description: "CSE grad currently working as an AI Native Full Stack Engineer at <a href=\"https://www.indium.tech/\" target=\"_blank\">Indium Software</a>, specializing in full-stack development and modern web frameworks."
   button1:
     label: "Download CV"
     link: "assets/files/Resume.pdf"
@@ -75,33 +75,33 @@ skills:
 
   column1:
     items:
-      - label: "Python" #0-10 progress in dots
-        text: "Proficient in Python for backend development, automation scripting, and machine learning implementations."
-        value: "90" #0-100 progress in %
+      - label: "Full Stack (Next.js, React, FastAPI)" #0-10 progress in dots
+        text: "Proficient in building scalable web apps and developer productivity dashboards with modern JS frameworks and Python."
+        value: "95" #0-100 progress in %
 
-      - label: "Java" #0-10 progress in dots
-        text: "Strong foundation in Java for Android development and object-oriented programming concepts."
+      - label: "WebAssembly" #0-10 progress in dots
+        text: "Experienced in porting C/C++ tools and building zero-install browser-based processing apps."
         value: "85" #0-100 progress in %
 
   column2:
     items:
-      - label: "Flutter/Dart" #0-10 progress in dots
-        text: "Experienced in cross-platform mobile development with Flutter and efficient state management."
-        value: "85" #0-100 progress in %
+      - label: "Python, C++, Java" #0-10 progress in dots
+        text: "Strong core programming skills across multiple paradigms for backend and systems development."
+        value: "90" #0-100 progress in %
 
-      - label: "JavaScript" #0-10 progress in dots
-        text: "Skilled in JavaScript for web development and API integration in full-stack applications."
-        value: "80" #0-100 progress in %
+      - label: "Flutter & Android" #0-10 progress in dots
+        text: "Experienced in mobile app development, complex overlays, and on-device machine learning integrations."
+        value: "85" #0-100 progress in %
 
   column3:
     items:
-      - label: "Google Cloud Platform" #0-10 progress in dots
-        text: "Hands-on experience with GCP services, deployment, and cloud infrastructure management."
-        value: "75" #0-100 progress in %
+      - label: "Cloud & DevOps (GCP, Docker)" #0-10 progress in dots
+        text: "Hands-on experience with GCP services, Docker containerization, Nginx, and deployment pipelines."
+        value: "80" #0-100 progress in %
 
-      - label: "Machine Learning" #0-10 progress in dots
-        text: "Experience with TensorFlow Lite, ML Kit, and on-device machine learning implementations."
-        value: "70" #0-100 progress in %
+      - label: "Scripting & Automation" #0-10 progress in dots
+        text: "Experienced in writing Python, JavaScript, Bash, and PowerShell scripts for automation, web scraping, and testing."
+        value: "90" #0-100 progress in %
 
 ### Portfolio [ portfolio ]
 #items generates from dir /_works/*
@@ -122,28 +122,33 @@ resume:
   education:
     title: "Education"
     items:
-      - name: "Computer Science Engineering"
-        subname: "Final Year Student"
+      - name: "B.E. Computer Science and Engineering"
+        subname: "<a href=\"https://velammal.edu.in/\" target=\"_blank\">Velammal Engineering College</a>, Chennai"
         period: "2022 - <b>2026</b>"
-        text: "Pursuing Bachelor's degree in Computer Science with focus on software development, cloud computing, and artificial intelligence technologies."
+        text: "CGPA: 8.48. Graduated with a Bachelor's degree focusing on software development, cloud computing, and AI technologies."
+
+      - name: "HSC (12th Standard)"
+        subname: "Good Shepherd MHSS, Kanyakumari"
+        period: "<b>2021</b>"
+        text: "Percentage: 94.06%."
+
+      - name: "SSLC (10th Standard)"
+        subname: "Good Shepherd MHSS, Kanyakumari"
+        period: "<b>2019</b>"
+        text: "Percentage: 93.2%."
 
   experience:
     title: "Experience &amp; Projects"
     items:
+      - name: "AI Native Full Stack Engineer (Trainee)"
+        subname: "<a href=\"https://www.indium.tech/\" target=\"_blank\">Indium Software</a>, Chennai"
+        period: "Jan 2026 - <b>Present</b>"
+        text: "Built a production coding assessment platform (19 skills, Judge0 engine). Engineered FT Metrics, a developer productivity dashboard aggregating multi-platform data with AI Copilot analytics using Next.js 16, TypeScript, SQLite, and Drizzle ORM."
+
       - name: "Full Stack Intern"
-        subname: "TamrielAGI – Silicon Valley AI Startup"
-        period: "2024"
-        text: "Contributed to a fast-paced startup environment with hands-on GCP and Google Colab experience. Developed robust backend systems with JWT authentication and secure FastAPI integration."
-
-      - name: "Android Developer"
-        subname: "GPA Calculator Project"
-        period: "2024"
-        text: "Engineered an Android app for automated GPA calculation by parsing PDF marksheets. Implemented precise data extraction using Regular Expressions for academic tool development."
-
-      - name: "ML Mobile Developer"
-        subname: "WhatSweep &amp; SuperXO Projects"
-        period: "2023 - 2024"
-        text: "Created intelligent Android app with custom TensorFlow Lite models for on-device image classification. Built cross-platform multiplayer games with complex state management using Flutter."
+        subname: "TamrielAGI - AI Startup"
+        period: "Jun 2025 - <b>Dec 2025</b>"
+        text: "Developed backend systems with JWT authentication and secure API integration using FastAPI on GCP. Contributed to cloud-hosted ML workflows in a fast-paced AI startup environment."
 
 ### Testimonials [ testimonials ]
 testimonials:
